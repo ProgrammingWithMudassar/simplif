@@ -1,18 +1,18 @@
 import { useState } from 'react'
+import { Home, MarketingPage } from './Pages/index'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import Button from '@mui/material/Button'
-import { Home } from './Pages/index'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      Well Mudassar G.
-      <Button variant="contained" color="primary">
-        click me
-      </Button>
-      <Home />
+      <Router>
+        <Routes>
+          <Route path='/' element={<MarketingPage />} />
+        </Routes>
+      </Router>
     </div>
   )
 }

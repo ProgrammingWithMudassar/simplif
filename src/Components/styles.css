@@ -1,0 +1,9 @@
+.footer_img{
+    width: 200px;
+}
+@media screen and (max-width: 600px) {
+    .footer_img{
+        width: 80px;
+    }
+    
+}

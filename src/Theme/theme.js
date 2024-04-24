@@ -6,15 +6,15 @@ const font = 'Nunito, sans-serif';
 const theme = createTheme({
   palette: {
     background: {
-      default: "#eee",
-      custom: "#0A4DAA"
+      default: "#fff",
+      custom: "#fff"
     },
     mode: 'light',
     primary: {
       main: '#000000',
     },
     secondary: {
-      main: "#FFFFFF"
+      main: "#FE5722"
     },
     tirtionary: {
       main: "#0A4DAA"
@@ -23,21 +23,46 @@ const theme = createTheme({
       main: '#000000'
     }
   },
-  typography: {
-    fontFamily: font,
-    button: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      border: 0,
-      color: '#000000',
-      height: 30,
-      fontSize: '20px',
-      padding: '10px',
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-      textTransform: 'none',
-      '&': {
-        color: red
-      }
-    }
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          border: "none",
+          borderRadius: 8,
+          fontSize: 16,
+          cursor: "pointer",
+          textTransform: "none",
+          height: "30px",
+          transition: "background-color 0.3s",
+          "&:hover": {
+            backgroundColor: "rgba(41, 184, 77, 0.1)",
+          },
+        },
+        contained: {
+          backgroundColor: "#FE5722",
+          color: "#fff",
+          borderRadius: 4,
+          boxShadow: "0px 0px 9px 2px rgba(254, 87, 34, 0.2)",
+          "&:hover": {
+            backgroundColor: "#FE5722",
+            borderRadius: 4,
+            boxShadow: "0px 0px 13px 2px rgba(254, 87, 34, 0.3)",
+          },
+        },
+
+        outlined: {
+          backgroundColor: "transparent",
+          color: "rgb(52,199,89)",
+          border: "1px solid #379237",
+          borderRadius: 6,
+          "&:hover": {
+            backgroundColor: "#379237",
+            border: "1px solid rgb(52,199,89)",
+            borderRadius: 6,
+          },
+        },
+      },
+    },
   },
   root: {
     "& .MuiDataGrid-columnHeaders": {
@@ -48,16 +73,16 @@ const theme = createTheme({
     }
   },
   '@global': {
-      '*::-webkit-scrollbar': {
-        width: '0px',
-        height: '10px',
-      },
-      '*::-webkit-scrollbar-thumb': {
-        width: '0rem',
-        backgroundColor: '#D5073C',
-        borderRadius: "2rem",
-      },
+    '*::-webkit-scrollbar': {
+      width: '0px',
+      height: '10px',
     },
+    '*::-webkit-scrollbar-thumb': {
+      width: '0rem',
+      backgroundColor: '#D5073C',
+      borderRadius: "2rem",
+    },
+  },
 });
 
 export default theme;

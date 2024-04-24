@@ -1,1 +1,5 @@
-export { default as Header} from './Home.jsx';
+export { default as Header} from './common/Header';
+export { default as Footer} from './common/Footer';
+export { default as Wrapper} from './common/Wrapper';
+
+
