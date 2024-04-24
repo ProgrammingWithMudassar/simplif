@@ -1,7 +1,7 @@
 import { red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
-const font = 'Nunito, sans-serif';
+const font = 'Poppins, sans-serif';
 
 const theme = createTheme({
   palette: {
@@ -22,6 +22,9 @@ const theme = createTheme({
     black: {
       main: '#000000'
     }
+  },
+  typography: {
+    fontFamily: font
   },
   components: {
     MuiButton: {
