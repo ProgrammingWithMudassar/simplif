@@ -67,8 +67,8 @@ const MarketingPage = () => {
                     <input type="text" className="Marketing_email_input" placeholder="Enter your email address" />
                     <Button variant="contained" sx={{ height: '42px', fontSize: '14px' }}>Join Waitlist</Button>
                 </Box>
-                <Box className="profile_page_box" sx={{ mt: {xs:3, md:8} }}>
-                    <Box sx={{ width: { xs: '80%', md: "60%" }, m: 'auto', position: "relative", mt: 3, height: "50vh" }}>
+                <Box className="profile_page_box" sx={{ mt: { xs: 3, md: 8 }, overflow: 'hidde' }}>
+                    <Box sx={{ width: { xs: '80%', md: "60%" }, m: 'auto', position: "relative", mt: 3, height: { xs: "calc(100vh - 400px)", md: " calc(120vh - 300px)" }, background: "#fff" }}>
                         <img src={profile_page} alt="" className="profile_page_class" />
                     </Box>
                 </Box>
