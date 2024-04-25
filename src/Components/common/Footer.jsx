@@ -7,12 +7,12 @@ import '../styles.css'
 const Footer = () => {
   return (
     <>
-      <Box sx={{ width: { xs: "100%", md: "80%" }, m: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: { xs: "column", md: "row" }, py: 4 }}>
-        <Box sx={{ width: '100%', ml: 6,mb:2 }}>
+      <Box sx={{ width: { xs: "100%", md: "80%" }, m: { xs: '', md: 'auto' }, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: { xs: "column", md: "row" }, py: 4 }}>
+        <Box sx={{ width: '100%', ml: 6, mb: 2 }}>
           <img src={Logo} alt="" className='footer_img' />
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Box sx={{ width:{xs:'auto',md:"250px"},display: 'flex', justifyContent: 'start', gap: { xs: 1, md: 2 }, flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap:4 }}>
+          <Box sx={{ width: { xs: 'auto', md: "250px" }, display: 'flex', justifyContent: 'start', gap: { xs: 1, md: 2 }, flexDirection: 'column' }}>
             <Typography variant="body1" color="#FE5722" sx={{ fontWeight: "600", fontSize: { xs: '14px', md: '18px' } }}>Company</Typography>
             <Typography variant="body1" color="initial" sx={{ fontSize: { xs: '14px', md: '18px' } }}>Privacy policy</Typography>
             <Typography variant="body1" color="initial" sx={{ fontSize: { xs: '14px', md: '18px' } }}>Terms & Conditions</Typography>

@@ -73,14 +73,14 @@ const MarketingPage = () => {
                     </Box>
                 </Box>
                 <Box sx={{ width: { xs: "95%", md: "100%" }, height: 'auto', m: 'auto', bgcolor: '#000', borderRadius: '10px', p: { xs: 2, md: 4 }, mt: 8, mb: 4 }}>
-                    <Typography variant="h4" color="#fff" sx={{ fontWeight: "bold", textAlign: "center", mt: 2, mb: 3 }}> Why Join Simplif?</Typography>
+                    <Typography  color="#fff" sx={{ fontWeight: "bold", textAlign: "center", mt: 2, mb: 3,fontSize:{xs:"22px", md:'34px'} }}> Why Join Simplif?</Typography>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", flexDirection: { xs: "column", md: "row" }, gap: 2, px: { xs: 1, md: 4 } }}>
                         {cards.map((card, index) => (
                             <Box key={index} sx={{ width: { xs: '100%', md: '25%' }, display: "flex", alignItems: "start", flexDirection: "column", gap: 2, my: 2 }}>
                                 <Box sx={{ width: "70px", height: "70px", position: "relative", bgcolor: '#2C2C2C', display: "flex", justifyContent: "center", alignItems: "center", borderRadius: '10px' }}>
                                     <img src={card.image} alt={card.title} style={{ width: '50%', objectFit: 'cover' }} />
                                 </Box>
-                                <Typography variant="h6" color="#fff" sx={{ mt: { xs: 0.4, md: 2 }, fontWeight: "bold" }}>{card.title}</Typography>
+                                <Typography color="#fff" sx={{ mt: { xs: 0.4, md: 2 }, fontWeight: "bold",fontSize:{xs:"18px", md:'24px'}}}>{card.title}</Typography>
                                 <Typography variant="body1" color="#fff" sx={{ fontSize: "14px" }}>{card.description}</Typography>
                             </Box>
                         ))}
