@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Home, MarketingPage } from './Pages/index'
+import { Profile , MarketingPage } from './Pages/index'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 
@@ -11,6 +11,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<MarketingPage />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </Router>
     </div>

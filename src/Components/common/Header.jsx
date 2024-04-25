@@ -3,7 +3,7 @@ import { Box, Button, Typography } from '@mui/material';
 import Logo from '../../Assets/png/logo.png';
 import { useTheme } from '@emotion/react';
 
-const Header = () => {
+const Header = ({ authenticaiton }) => {
     const theme = useTheme();
 
     return (
@@ -19,14 +19,19 @@ const Header = () => {
                 height: { xs: '23px', sm: '30px', md: '40px', lg: '45px' },
                 position: 'relative'
             }}>
-                <img src={Logo} alt="Company Logo" style={{ width: '100%', height: '100%', position: 'absolute' }} />
+                <img src={Logo} alt="Company Logo" style={{ width: '110%', height: '100%', position: 'absolute' }} />
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Typography variant="body1" color={theme.palette.secondary.main} sx={{ fontWeight: 'bold', cursor: 'pointer' }}>
-                    Login
-                </Typography>
-                <Button variant="contained" sx={{ fontSize:'capitalize', fontWeight: 'bold' }}>Join Waitlist</Button>
-            </Box>
+            {
+                !authenticaiton ?
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                        <Typography variant="body1" color={theme.palette.secondary.main} sx={{ fontWeight: 'bold', cursor: 'pointer' }}>
+                            Login
+                        </Typography>
+                        <Button variant="contained" sx={{ fontSize: 'capitalize', fontWeight: 'bold' }}>Join Waitlist</Button>
+                    </Box>
+                    :
+                    <Typography variant="body1" color="initial">My account</Typography>
+            }
         </Box>
     );
 }

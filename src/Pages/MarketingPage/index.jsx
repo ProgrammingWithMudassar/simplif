@@ -41,22 +41,22 @@ const MarketingPage = () => {
                         <Typography
                             color="initial"
                             sx={{
-                                width: { xs: "90%", sm: "60%" },
-                                fontSize: { xs: "25px", sm: "30px", md: "40px", lg: "50px" },
+                                width: '100%',
+                                fontSize: { xs: "20px", sm: "30px", md: "40px", lg: "50px" },
                                 fontWeight: "bold",
                                 textAlign: "center",
-                                lineHeight: "1",
+                                lineHeight: "1.2",
                             }}
                         >
-                            Influencer Marketing Content On Demand
+                            Influencer Marketing Content <br />On Demand
                         </Typography>
                         <Typography
                             color="#5E5E5E"
                             sx={{
-                                width: "60%",
+                                width: "100%",
                                 lineHeight: "1",
                                 mt: 2, fontWeight: "600",
-                                fontSize: { xs: "14px", md: "18px" },
+                                fontSize: { xs: "12px", md: "18px" },
                             }}
                         >
                             The all-in-one FREE platform to hire influencers for content
@@ -68,7 +68,7 @@ const MarketingPage = () => {
                     <Button variant="contained" sx={{ height: '42px', fontSize: '14px' }}>Join Waitlist</Button>
                 </Box>
                 <Box className="profile_page_box" sx={{ mt: { xs: 3, md: 8 }, overflow: 'hidde' }}>
-                    <Box sx={{ width: { xs: '80%', md: "60%" }, m: 'auto', position: "relative", mt: 3, height: { xs: "calc(100vh - 400px)", md: " calc(120vh - 300px)" }, background: "#fff" }}>
+                    <Box sx={{ width: { xs: '80%', md: "60%" }, m: 'auto', position: "relative", mt: 3, height: { xs: "250px", md: "200px" }, background: "#fff" }}>
                         <img src={profile_page} alt="" className="profile_page_class" />
                     </Box>
                 </Box>
