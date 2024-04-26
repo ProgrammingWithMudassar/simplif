@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Header, Footer, Wrapper } from "../../Components/index.js";
 import { Box, Typography, Button } from "@mui/material";
 import profile_page from '../../Assets/png/MarketingPage/profile_page.png'
@@ -6,9 +6,40 @@ import superhero from '../../Assets/png/MarketingPage/superhero.png'
 import collaboration from '../../Assets/png/MarketingPage/collaboration.png'
 import crowdfunding from '../../Assets/png/MarketingPage/crowdfunding.png'
 import hashtag from '../../Assets/png/MarketingPage/hashtag.png'
+import { useWaitlistMutation } from "../../Features/API/WaitlistApi.js";
+import { toast } from 'react-toastify'
 import '../style.css'
 
 const MarketingPage = () => {
+
+    const [email, setEmail] = useState('');
+    const [postWaitlist] = useWaitlistMutation();
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        // Email validation (simple pattern)
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            toast.error('Please enter a valid email address.', { position: 'top-center', autoClose: 3000 });
+            return;
+        }
+
+        try {
+            await postWaitlist({ email });
+            toast.success('Successfully added to waitlist!', { position: 'top-center', autoClose: 3000 });
+            setEmail('');  // Clear input after submission
+        } catch (error) {
+            toast.error('Failed to add to waitlist. Please try again.', { position: 'top-center', autoClose: 3000 });
+        }
+    };
+
+
+
+
     const cards = [
         {
             image: superhero,
@@ -31,6 +62,10 @@ const MarketingPage = () => {
             description: "We're not a marketing agency; instead, you have full freedom to leave whenever."
         }
     ];
+
+
+
+
     return (
         <React.Fragment>
             <Wrapper id="marketingPage">
@@ -63,24 +98,32 @@ const MarketingPage = () => {
                         </Typography>
                     </Box>
                 </Box>
-                <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mt: { xs: 2, md: 4 }, gap: 1, px: 1 }}>
-                    <input type="text" className="Marketing_email_input" placeholder="Enter your email address" />
-                    <Button variant="contained" sx={{ height: '42px', fontSize: '14px' }}>Join Waitlist</Button>
-                </Box>
+                <form onSubmit={handleSubmit}>
+                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mt: { xs: 2, md: 4 }, gap: 1, px: 1 }}>
+                        <input
+                            type="text"
+                            value={email}
+                            onChange={handleEmailChange}
+                            className="Marketing_email_input"
+                            placeholder="Enter your email address"
+                        />
+                        <Button type="submit" variant="contained" sx={{ height: '42px', fontSize: '14px' }}>Join Waitlist</Button>
+                    </Box>
+                </form>
                 <Box className="profile_page_box" sx={{ mt: { xs: 3, md: 8 }, overflow: 'hidde' }}>
                     <Box sx={{ width: { xs: '80%', md: "60%" }, m: 'auto', position: "relative", mt: 3, height: { xs: "250px", md: "200px" }, background: "#fff" }}>
                         <img src={profile_page} alt="" className="profile_page_class" />
                     </Box>
                 </Box>
                 <Box sx={{ width: { xs: "95%", md: "100%" }, height: 'auto', m: 'auto', bgcolor: '#000', borderRadius: '10px', p: { xs: 2, md: 4 }, mt: 8, mb: 4 }}>
-                    <Typography  color="#fff" sx={{ fontWeight: "bold", textAlign: "center", mt: 2, mb: 3,fontSize:{xs:"22px", md:'34px'} }}> Why Join Simplif?</Typography>
+                    <Typography color="#fff" sx={{ fontWeight: "bold", textAlign: "center", mt: 2, mb: 3, fontSize: { xs: "22px", md: '34px' } }}> Why Join Simplif?</Typography>
                     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", flexDirection: { xs: "column", md: "row" }, gap: 2, px: { xs: 1, md: 4 } }}>
                         {cards.map((card, index) => (
                             <Box key={index} sx={{ width: { xs: '100%', md: '25%' }, display: "flex", alignItems: "start", flexDirection: "column", gap: 2, my: 2 }}>
                                 <Box sx={{ width: "70px", height: "70px", position: "relative", bgcolor: '#2C2C2C', display: "flex", justifyContent: "center", alignItems: "center", borderRadius: '10px' }}>
                                     <img src={card.image} alt={card.title} style={{ width: '50%', objectFit: 'cover' }} />
                                 </Box>
-                                <Typography color="#fff" sx={{ mt: { xs: 0.4, md: 2 }, fontWeight: "bold",fontSize:{xs:"18px", md:'24px'}}}>{card.title}</Typography>
+                                <Typography color="#fff" sx={{ mt: { xs: 0.4, md: 2 }, fontWeight: "bold", fontSize: { xs: "18px", md: '24px' } }}>{card.title}</Typography>
                                 <Typography variant="body1" color="#fff" sx={{ fontSize: "14px" }}>{card.description}</Typography>
                             </Box>
                         ))}

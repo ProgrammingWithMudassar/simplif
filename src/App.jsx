@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Profile , MarketingPage } from './Pages/index'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastCard } from './Components/index.js';
 import './App.css'
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
           <Route path='/profile' element={<Profile />} />
         </Routes>
       </Router>
+
+      <ToastCard />
     </div>
   )
 }

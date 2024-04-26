@@ -1,15 +1,3 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom/client'
-// import App from './App'
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-// )
-
-
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -19,13 +7,21 @@ import theme from "./Theme/theme.js";
 import { Provider } from "react-redux";
 import { configureStore } from '@reduxjs/toolkit'
 import counterSlice from './Features/Counter/CounterSlice.js'
+import { WaitlistApi } from './Features/API/WaitlistApi.js';
 
 
 const store = configureStore({
-  reducer: { counter: counterSlice }
+  reducer: {
+    counter: counterSlice,
+    [WaitlistApi.reducerPath]: WaitlistApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(
+      WaitlistApi.middleware,
+    ),
 });
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 
 root.render(
   <React.StrictMode>
